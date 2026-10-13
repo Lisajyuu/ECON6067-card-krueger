@@ -1,0 +1,12 @@
+# Course input data: do not upload to GitHub
+input/
+
+# Python temporary files
+__pycache__/
+*.pyc
+
+# VS Code and system files
+.vscode/
+.DS_Store
+# Read locally; cite the original paper instead of uploading it
+docs/njmin-aer.pdf
