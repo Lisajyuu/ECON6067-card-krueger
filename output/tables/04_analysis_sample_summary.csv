@@ -1,0 +1,9 @@
+﻿metric,value
+total observations,410
+New Jersey observations,331
+Pennsylvania observations,79
+permanent closures,6
+temporary closures,4
+observations with valid fte_before,398
+observations with valid fte_after,396
+balanced FTE sample,384
