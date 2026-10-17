@@ -1,0 +1,9 @@
+﻿row,(i),(ii),(iii),(iv),(v)
+1. New Jersey dummy,2.326 (1.192),2.304 (1.196),,,
+2. Initial wage gap,,,15.653 (6.080),14.916 (6.205),11.979 (7.419)
+3. Controls for chain and ownership,no,yes,no,yes,yes
+4. Controls for region,no,no,no,no,yes
+5. Standard error of regression,8.791,8.785,8.757,8.759,8.752
+6. Probability value for controls,,0.344,,0.437,0.405
+Sample size,357,357,357,357,357
+R-squared,0.0106,0.0231,0.0183,0.0288,0.0413
