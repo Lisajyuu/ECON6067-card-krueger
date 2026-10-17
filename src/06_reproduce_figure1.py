@@ -129,7 +129,7 @@ for i, line in enumerate(notes, start=1):
 wb.save(OUTPUT_XLSX)
 
 # ---- Plot: two stacked panels ----
-fig, axes = plt.subplots(2, 1, figsize=(9.5, 10), sharex=True)
+fig, axes = plt.subplots(2, 1, figsize=(9.5, 10), sharex=False)
 x = np.arange(len(WAGE_LABELS))
 width = 0.38
 
@@ -156,9 +156,10 @@ for ax, wave_label, df_wave, ylim in panels:
     for spine in ["top", "right"]:
         ax.spines[spine].set_visible(False)
 
-axes[1].set_xlabel("Starting wage ($/hour)", fontsize=12)
-axes[1].set_xticks(x)
-axes[1].set_xticklabels(WAGE_LABELS, rotation=90, fontsize=10)
+    # Full x-axis wage tick labels and label on BOTH panels
+    ax.set_xlabel("Wage range ($/hour)", fontsize=12)
+    ax.set_xticks(x)
+    ax.set_xticklabels(WAGE_LABELS, rotation=0, fontsize=10)
 
 handles, labels = axes[0].get_legend_handles_labels()
 fig.legend(handles, labels, loc="upper center", ncol=2, frameon=False, fontsize=12,
