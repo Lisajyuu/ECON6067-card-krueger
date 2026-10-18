@@ -5,10 +5,10 @@ Step 6: Reproduce Figure 1 of Card and Krueger (1994)
 and Pennsylvania at each starting wage, in February 1992 (wave 1) and November
 1992 (wave 2).
 
-Reads input/public.csv directly and writes:
-  1. output/figures/figure1_replication.png       -- two-panel bar chart
-  2. output/tables/figure1_wage_distribution.csv  -- verifiable bin counts
-  3. output/tables/figure1_wage_distribution.xlsx -- wide view + Notes sheet
+Reads data/raw/public.csv directly and writes:
+  1. outputs/figures/figure1_replication.png       -- two-panel bar chart
+  2. outputs/tables/figure1_wage_distribution.csv  -- verifiable bin counts
+  3. outputs/tables/figure1_wage_distribution.xlsx -- wide view + Notes sheet
 
 Binning: the x-axis uses the paper's wage points $4.25, $4.35, $4.45, ... $5.55
 (0.10 wide bins centred on those points). A wage is assigned to the nearest
@@ -28,10 +28,10 @@ from openpyxl import Workbook
 from openpyxl.styles import Font
 
 ROOT = Path(__file__).resolve().parent.parent
-INPUT_FILE = ROOT / "input" / "public.csv"
-OUTPUT_PNG = ROOT / "output" / "figures" / "figure1_replication.png"
-OUTPUT_CSV = ROOT / "output" / "tables" / "figure1_wage_distribution.csv"
-OUTPUT_XLSX = ROOT / "output" / "tables" / "figure1_wage_distribution.xlsx"
+INPUT_FILE = ROOT / "data" / "raw" / "public.csv"
+OUTPUT_PNG = ROOT / "outputs" / "figures" / "figure1_replication.png"
+OUTPUT_CSV = ROOT / "outputs" / "tables" / "figure1_wage_distribution.csv"
+OUTPUT_XLSX = ROOT / "outputs" / "tables" / "figure1_wage_distribution.xlsx"
 
 raw = pd.read_csv(INPUT_FILE)
 
@@ -180,7 +180,7 @@ def key_pct(df_wave, state, point_cents):
 
 
 print("=== Step 6: reproduce Figure 1 ===")
-print(f"Read {len(raw)} rows from input/public.csv.")
+print(f"Read {len(raw)} rows from data/raw/public.csv.")
 for wave_label, df_wave in [("February 1992", wave1), ("November 1992", wave2)]:
     nj_n = df_wave[df_wave["state"] == "NJ"]["total"].iloc[0]
     pa_n = df_wave[df_wave["state"] == "PA"]["total"].iloc[0]

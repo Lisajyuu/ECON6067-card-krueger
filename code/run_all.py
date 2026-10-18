@@ -3,9 +3,9 @@ Reproducible workflow: run the full replication-and-extension pipeline.
 
 Run from the project root:
 
-    python src/run_all.py
+    python code/run_all.py
 
-This runs src/01_inspect_data.py through src/07_extension_price_did.py in
+This runs code/01_inspect_data.py through code/07_extension_price_did.py in
 order, using the current Python interpreter (the same one running this file).
 Each step is announced before it runs. If any step fails, the workflow stops
 immediately and reports the failing script and its exit code (the step's own
@@ -18,29 +18,29 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 SCRIPTS = [
-    "src/01_inspect_data.py",
-    "src/02_prepare_analysis.py",
-    "src/03_reproduce_table2.py",
-    "src/04_reproduce_table3.py",
-    "src/05_reproduce_table4.py",
-    "src/06_reproduce_figure1.py",
-    "src/07_extension_price_did.py",
+    "code/01_inspect_data.py",
+    "code/02_prepare_analysis.py",
+    "code/03_reproduce_table2.py",
+    "code/04_reproduce_table3.py",
+    "code/05_reproduce_table4.py",
+    "code/06_reproduce_figure1.py",
+    "code/07_extension_price_did.py",
 ]
 
 OUTPUTS = [
-    "output/analysis_data.csv",
-    "output/tables/table2_replication.csv",
-    "output/tables/table2_replication.xlsx",
-    "output/tables/table3_replication.csv",
-    "output/tables/table3_replication.xlsx",
-    "output/tables/table4_replication.csv",
-    "output/tables/table4_replication.xlsx",
-    "output/tables/figure1_wage_distribution.csv",
-    "output/tables/figure1_wage_distribution.xlsx",
-    "output/figures/figure1_replication.png",
-    "output/tables/extension_price_did.csv",
-    "output/tables/extension_price_did.xlsx",
-    "output/figures/extension_price_did.png",
+    "data/processed/analysis_data.csv",
+    "outputs/tables/table2_replication.csv",
+    "outputs/tables/table2_replication.xlsx",
+    "outputs/tables/table3_replication.csv",
+    "outputs/tables/table3_replication.xlsx",
+    "outputs/tables/table4_replication.csv",
+    "outputs/tables/table4_replication.xlsx",
+    "outputs/tables/figure1_wage_distribution.csv",
+    "outputs/tables/figure1_wage_distribution.xlsx",
+    "outputs/figures/figure1_replication.png",
+    "outputs/tables/extension_price_did.csv",
+    "outputs/tables/extension_price_did.xlsx",
+    "outputs/figures/extension_price_did.png",
     "report/report.md",
     "report/report.html",
 ]

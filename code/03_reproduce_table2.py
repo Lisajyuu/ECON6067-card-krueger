@@ -1,9 +1,9 @@
 """
 Step 3: Reproduce Table 2 of Card and Krueger (1994)
 
-Reads output/analysis_data.csv and writes two files:
-  1. output/tables/table2_replication.csv  -- tidy long-format validation table
-  2. output/tables/table2_replication.xlsx -- report-ready wide table
+Reads data/processed/analysis_data.csv and writes two files:
+  1. outputs/tables/table2_replication.csv  -- tidy long-format validation table
+  2. outputs/tables/table2_replication.xlsx -- report-ready wide table
 
 The table has three panels:
   1. Distribution of Store Types (percentages)
@@ -21,9 +21,9 @@ from openpyxl import Workbook
 from openpyxl.styles import Font
 
 ROOT = Path(__file__).resolve().parent.parent
-INPUT_FILE = ROOT / "output" / "analysis_data.csv"
-OUTPUT_CSV = ROOT / "output" / "tables" / "table2_replication.csv"
-OUTPUT_XLSX = ROOT / "output" / "tables" / "table2_replication.xlsx"
+INPUT_FILE = ROOT / "data" / "processed" / "analysis_data.csv"
+OUTPUT_CSV = ROOT / "outputs" / "tables" / "table2_replication.csv"
+OUTPUT_XLSX = ROOT / "outputs" / "tables" / "table2_replication.xlsx"
 
 df = pd.read_csv(INPUT_FILE)
 nj = df["STATE"] == 1
@@ -217,7 +217,7 @@ wb.save(OUTPUT_XLSX)
 
 # ---- Brief terminal summary ----
 print("=== Step 3: reproduce Table 2 ===")
-print(f"Read {len(df)} rows from output/analysis_data.csv.")
+print(f"Read {len(df)} rows from data/processed/analysis_data.csv.")
 print()
 print("Validation against the published Table 2 (paper vs replication):")
 print(validation.to_string(index=False))

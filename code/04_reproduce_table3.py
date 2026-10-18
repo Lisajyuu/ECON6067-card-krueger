@@ -5,9 +5,9 @@ Step 4: Reproduce Table 3 of Card and Krueger (1994)
 minimum wage": the difference-in-differences of FTE employment between New
 Jersey and Pennsylvania, plus the New Jersey wage-group comparison.
 
-Reads output/analysis_data.csv and writes:
-  1. output/tables/table3_replication.csv  -- tidy long-format table
-  2. output/tables/table3_replication.xlsx -- report-ready wide table + Notes sheet
+Reads data/processed/analysis_data.csv and writes:
+  1. outputs/tables/table3_replication.csv  -- tidy long-format table
+  2. outputs/tables/table3_replication.xlsx -- report-ready wide table + Notes sheet
 
 Standard errors for level means are analytic (SD / sqrt(n)). Standard errors for
 changes and differences are computed by a store-level bootstrap: restaurants are
@@ -26,9 +26,9 @@ SEED = 42
 N_BOOT = 2000
 
 ROOT = Path(__file__).resolve().parent.parent
-INPUT_FILE = ROOT / "output" / "analysis_data.csv"
-OUTPUT_CSV = ROOT / "output" / "tables" / "table3_replication.csv"
-OUTPUT_XLSX = ROOT / "output" / "tables" / "table3_replication.xlsx"
+INPUT_FILE = ROOT / "data" / "processed" / "analysis_data.csv"
+OUTPUT_CSV = ROOT / "outputs" / "tables" / "table3_replication.csv"
+OUTPUT_XLSX = ROOT / "outputs" / "tables" / "table3_replication.xlsx"
 
 df = pd.read_csv(INPUT_FILE)
 
@@ -262,7 +262,7 @@ wb.save(OUTPUT_XLSX)
 
 # ---- Terminal summary ----
 print("=== Step 4: reproduce Table 3 ===")
-print(f"Read {len(df)} rows from output/analysis_data.csv.")
+print(f"Read {len(df)} rows from data/processed/analysis_data.csv.")
 print(f"NJ wage-group sizes (wave-1 wage): $4.25={int(low_mask.sum())}, "
       f"$4.26-$4.99={int(mid_mask.sum())}, >=$5.00={int(high_mask.sum())} "
       f"(paper: 101 / 140 / 73).")

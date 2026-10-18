@@ -6,9 +6,9 @@ change in FTE employment on the New Jersey dummy (models i-ii) or the initial
 wage gap (models iii-v), with and without controls for chain, company
 ownership, and region.
 
-Reads output/analysis_data.csv and writes:
-  1. output/tables/table4_replication.csv  -- wide table mirroring the paper
-  2. output/tables/table4_replication.xlsx -- report-ready table + Notes sheet
+Reads data/processed/analysis_data.csv and writes:
+  1. outputs/tables/table4_replication.csv  -- wide table mirroring the paper
+  2. outputs/tables/table4_replication.xlsx -- report-ready table + Notes sheet
 
 Sample: the 357 stores with FTE employment in both waves and a starting wage in
 both waves. The six permanently closed stores stay in the sample (their wave-2
@@ -24,9 +24,9 @@ from openpyxl import Workbook
 from openpyxl.styles import Font, Alignment
 
 ROOT = Path(__file__).resolve().parent.parent
-INPUT_FILE = ROOT / "output" / "analysis_data.csv"
-OUTPUT_CSV = ROOT / "output" / "tables" / "table4_replication.csv"
-OUTPUT_XLSX = ROOT / "output" / "tables" / "table4_replication.xlsx"
+INPUT_FILE = ROOT / "data" / "processed" / "analysis_data.csv"
+OUTPUT_CSV = ROOT / "outputs" / "tables" / "table4_replication.csv"
+OUTPUT_XLSX = ROOT / "outputs" / "tables" / "table4_replication.xlsx"
 
 df = pd.read_csv(INPUT_FILE)
 

@@ -1,8 +1,8 @@
 """
 Step 1: Data inspection
 
-Read input/public.csv (read-only, without modifying the original data),
-produce three tables under output/tables/, and print a brief summary:
+Read data/raw/public.csv (read-only, without modifying the original data),
+produce three tables under outputs/tables/, and print a brief summary:
   1. Data overview table (rows, columns, restaurant counts by state)
   2. STATUS2 counts table (with status meaning)
   3. Missing-value table (missing count and proportion per variable)
@@ -10,10 +10,10 @@ produce three tables under output/tables/, and print a brief summary:
 import pandas as pd
 from pathlib import Path
 
-# Project root: this file lives in src/, so its parent is the project root
+# Project root: this file lives in code/, so its parent is the project root
 ROOT = Path(__file__).resolve().parent.parent
-INPUT_FILE = ROOT / "input" / "public.csv"
-OUTPUT_DIR = ROOT / "output" / "tables"
+INPUT_FILE = ROOT / "data" / "raw" / "public.csv"
+OUTPUT_DIR = ROOT / "outputs" / "tables"
 
 # Read the data (read-only; the original file is not modified)
 df = pd.read_csv(INPUT_FILE)
@@ -83,4 +83,4 @@ for _, row in status_table.iterrows():
 print()
 n_missing_cols = int((df.isna().sum() > 0).sum())
 print(f"Of {len(df.columns)} variables, {n_missing_cols} have missing values.")
-print("Three tables were saved to output/tables/.")
+print("Three tables were saved to outputs/tables/.")

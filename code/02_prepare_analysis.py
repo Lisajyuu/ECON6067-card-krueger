@@ -1,10 +1,10 @@
 """
 Step 2: Prepare analysis data
 
-Read input/public.csv (read-only, without modifying the original data) and
+Read data/raw/public.csv (read-only, without modifying the original data) and
 produce two English files:
-  1. output/analysis_data.csv  -- cleaned data for later analysis
-  2. output/tables/04_analysis_sample_summary.csv  -- sample summary
+  1. data/processed/analysis_data.csv  -- cleaned data for later analysis
+  2. outputs/tables/04_analysis_sample_summary.csv  -- sample summary
 
 Adds the FTE variables used by the paper, applies the closure treatments, and
 does not fill any other missing values.
@@ -13,11 +13,11 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 
-# Project root: this file lives in src/, so its parent is the project root
+# Project root: this file lives in code/, so its parent is the project root
 ROOT = Path(__file__).resolve().parent.parent
-INPUT_FILE = ROOT / "input" / "public.csv"
-OUTPUT_DIR = ROOT / "output"
-TABLES_DIR = ROOT / "output" / "tables"
+INPUT_FILE = ROOT / "data" / "raw" / "public.csv"
+OUTPUT_DIR = ROOT / "data" / "processed"
+TABLES_DIR = ROOT / "outputs" / "tables"
 
 # Read the data (read-only; the original file is not modified)
 df = pd.read_csv(INPUT_FILE)
@@ -70,9 +70,9 @@ summary.to_csv(TABLES_DIR / "04_analysis_sample_summary.csv", index=False, encod
 
 # ---------- Brief terminal summary ----------
 print("=== Step 2: prepare analysis data ===")
-print(f"Read {len(df)} rows and saved output/analysis_data.csv.")
+print(f"Read {len(df)} rows and saved data/processed/analysis_data.csv.")
 print()
 for _, row in summary.iterrows():
     print(f"{row['metric']}: {row['value']}")
 print()
-print("Sample summary saved to output/tables/04_analysis_sample_summary.csv.")
+print("Sample summary saved to outputs/tables/04_analysis_sample_summary.csv.")

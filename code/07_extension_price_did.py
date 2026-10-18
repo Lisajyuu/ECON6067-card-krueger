@@ -8,10 +8,10 @@ tax, in USD). The sample is the stores with non-missing full-meal prices in both
 waves; closed stores and stores with any missing price are excluded (no price is
 imputed to 0).
 
-Reads input/public.csv and writes:
-  1. output/tables/extension_price_did.csv  -- means, DiD, and regressions
-  2. output/tables/extension_price_did.xlsx -- results + Notes sheet
-  3. output/figures/extension_price_did.png -- before/after mean-price lines
+Reads data/raw/public.csv and writes:
+  1. outputs/tables/extension_price_did.csv  -- means, DiD, and regressions
+  2. outputs/tables/extension_price_did.xlsx -- results + Notes sheet
+  3. outputs/figures/extension_price_did.png -- before/after mean-price lines
 """
 import numpy as np
 import pandas as pd
@@ -25,10 +25,10 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 ROOT = Path(__file__).resolve().parent.parent
-INPUT_FILE = ROOT / "input" / "public.csv"
-OUTPUT_CSV = ROOT / "output" / "tables" / "extension_price_did.csv"
-OUTPUT_XLSX = ROOT / "output" / "tables" / "extension_price_did.xlsx"
-OUTPUT_PNG = ROOT / "output" / "figures" / "extension_price_did.png"
+INPUT_FILE = ROOT / "data" / "raw" / "public.csv"
+OUTPUT_CSV = ROOT / "outputs" / "tables" / "extension_price_did.csv"
+OUTPUT_XLSX = ROOT / "outputs" / "tables" / "extension_price_did.xlsx"
+OUTPUT_PNG = ROOT / "outputs" / "figures" / "extension_price_did.png"
 
 raw = pd.read_csv(INPUT_FILE)
 
